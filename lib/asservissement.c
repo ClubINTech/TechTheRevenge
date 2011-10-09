@@ -1,9 +1,8 @@
 #include "asservissement.h"
 
-transport
-apply(transport t)
+void
+apply(etat *e)
 {
-    t.x = t.x + 1;
-    printf("i = %i\n", t.x);
-    return t;
+    printf("position = %lf, ", e->position->x);
+    printf("consigne = %lf\n", e->consigne->x);
 }

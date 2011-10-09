@@ -7,9 +7,11 @@
 void *
 callback()
 {
-    transport t = { 0 };
+    point consigne = { 10, 0, 0 };
+    point position = { 0, 0, 0 };
+    etat e = { &consigne, &position };
     while(1) {
-        t = apply(t);
+        apply(&e);
     }
     pthread_exit(NULL);
 }

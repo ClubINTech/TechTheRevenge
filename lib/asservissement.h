@@ -2,13 +2,15 @@
 #include <stdlib.h>
 
 typedef struct {
-   int x;
-   int y;
+    double x;
+    double y;
+    double angle;
 } point;
 
 typedef struct {
-   int x;
-} transport;
+    point *consigne;
+    point *position;
+} etat;
 
-transport
-apply(transport);
+void
+apply(etat *);
