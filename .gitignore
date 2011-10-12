@@ -1,3 +1,5 @@
 bin/*
-lib/Makefile
+gem/Makefile
 *.log
+gem/*.o
+gem/revenge.bundle
