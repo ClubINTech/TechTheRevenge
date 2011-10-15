@@ -15,6 +15,7 @@ class Asservissement
   end
 
   def goto(consigne)
+    # Attente active, lance un exception en cas de pépin
   end
 
   def arret
