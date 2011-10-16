@@ -1,4 +1,4 @@
-require "./carte"
+# require "carte"
 
 class AStar
 
@@ -52,12 +52,12 @@ class AStar
 
 end
 
-carte = Carte.new
-
-adjacency_func = carte.method(:adjacent)
-cost_func = carte.method(:distance)
-distance_func = carte.method(:distance)
-
-a = AStar.new(adjacency_func, cost_func, distance_func)
-p a.find_path([1, 1], [9, 2])
-
+# carte = Carte.new
+#
+# adjacency_func = carte.method(:adjacent)
+# cost_func = carte.method(:distance)
+# distance_func = carte.method(:distance)
+#
+# a = AStar.new(adjacency_func, cost_func, distance_func)
+# p a.find_path([1, 1], [9, 2])
+#
