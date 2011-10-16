@@ -1,11 +1,13 @@
+require "./carte"
+
 class AStar
-  
+
   def initialize(adjacency_func, cost_func, distance_func)
     @adjacency = adjacency_func
     @cost = cost_func
     @distance = distance_func
   end
-  
+
   def find_path(start, goal)
     been_there = {}
     pqueue = PriorityQueue.new
@@ -26,8 +28,8 @@ class AStar
       end
     end
     return nil
-  end   
-  
+  end
+
   class PriorityQueue
     def initialize
       @list = []
@@ -47,31 +49,15 @@ class AStar
       @list.empty?
     end
   end
-  
+
 end
 
-def possible spot
-  x, y = spot
-  x >= 0 && x< 10 && y >= 0 && y< 10
-end
+carte = Carte.new
 
-adjacency_func = lambda { |spot|
-  x, y = spot
-  [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]].select { |v| possible(v) }
-}
-
-cost_func = lambda { |spot, newspot|
-  a, b = spot
-  c, d = newspot
-  (c - a) * (c - a) + (d - b) * (d - b)
-}
-
-distance_func = lambda { |goal, newspot|
-  a, b = goal
-  c, d = newspot
-  (c - a) * (c - a) + (d - b) * (d - b)
-}
+adjacency_func = carte.method(:adjacent)
+cost_func = carte.method(:distance)
+distance_func = carte.method(:distance)
 
 a = AStar.new(adjacency_func, cost_func, distance_func)
-p a.find_path([1, 1], [9, 9])
+p a.find_path([1, 1], [9, 2])
 
